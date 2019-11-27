@@ -25,9 +25,9 @@ message(STATUS "Build spdlog: ${SPDLOG_VERSION}")
 #---------------------------------------------------------------------------------------
 # Compiler config
 #---------------------------------------------------------------------------------------
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
+#set(CMAKE_CXX_STANDARD 11)
+#set(CMAKE_CXX_STANDARD_REQUIRED ON)
+#set(CMAKE_CXX_EXTENSIONS OFF)
 
 #---------------------------------------------------------------------------------------
 # Set SPDLOG_MASTER_PROJECT to ON if we are building spdlog
@@ -117,7 +117,9 @@ target_include_directories(spdlog PUBLIC
         "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>"
         "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
 target_link_libraries(spdlog PUBLIC Threads::Threads)
-spdlog_enable_warnings(spdlog)
+#spdlog_enable_warnings(spdlog)
+target_link_libraries(spdlog PUBLIC standard_project_options)
+target_link_libraries(spdlog PUBLIC standard_project_warnings)
 
 set_target_properties(spdlog PROPERTIES VERSION ${SPDLOG_VERSION} SOVERSION ${SPDLOG_VERSION_MAJOR})
 set_target_properties(spdlog PROPERTIES DEBUG_POSTFIX d)
