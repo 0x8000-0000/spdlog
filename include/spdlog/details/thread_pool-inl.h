@@ -9,6 +9,8 @@
 
 #include <spdlog/common.h>
 
+#include <cassert>
+
 namespace spdlog {
 namespace details {
 
